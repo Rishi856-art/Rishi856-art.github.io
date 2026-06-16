@@ -6,6 +6,7 @@ import type { LucideIcon } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { PhotoGrid } from "@/components/photo-grid";
 import { Reveal } from "@/components/reveal";
+import { demoPhotos } from "@/lib/demo-data";
 import { useLivePortfolioData } from "@/lib/live-data";
 import type { Photo } from "@/lib/types";
 
@@ -13,7 +14,9 @@ export function HomeContent({ initialPhotos }: { initialPhotos: Photo[] }) {
   const { photos } = useLivePortfolioData(undefined, initialPhotos);
   const featured = photos.filter((photo) => photo.featured);
   const heroPhotos = featured.length ? featured : photos;
-  const introPhotos = (featured.length ? featured : photos).slice(0, 3);
+  const introPhotos = [...(featured.length ? featured : photos), ...demoPhotos]
+    .filter((photo, index, list) => list.findIndex((item) => item.image_url === photo.image_url) === index)
+    .slice(0, 3);
   const specialties: [LucideIcon, string, string][] = [
     [Camera, "Portraits", "Intimate portraits with texture, presence, and room to breathe."],
     [Compass, "Travel", "Sense-of-place stories made on the road and far from it."],
