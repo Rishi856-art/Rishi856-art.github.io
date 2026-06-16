@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <div className="page-shell flex min-h-screen flex-col items-center justify-center text-center"><p className="eyebrow">404</p><h1 className="mt-5 font-display text-7xl">Out of frame.</h1><p className="mt-5 text-white/45">The page you’re looking for isn’t here.</p><Link href="/" className="button-primary mt-8">Return home</Link></div>; }
