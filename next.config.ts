@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-const repoName = process.env.GITHUB_PAGES_REPO ?? "lumen-photography-portfolio";
+const repoName = process.env.GITHUB_PAGES_REPO ?? "";
 const githubPagesBasePath = repoName ? `/${repoName}` : "";
 
 const nextConfig: NextConfig = {
