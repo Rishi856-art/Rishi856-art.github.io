@@ -24,8 +24,8 @@ export function Hero({ photos }: { photos: Photo[] }) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/25" />
       <div className="page-shell relative z-10 flex min-h-screen items-end pb-24 pt-32 sm:items-center sm:pb-0">
         <div className="max-w-4xl">
-          <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .2 }} className="eyebrow mb-6">Photographer · Visual storyteller</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .35, duration: 1 }} className="display-title text-[18vw] sm:text-8xl lg:text-[9rem]">Stories held<br/><em className="font-light text-white/65">in light.</em></motion.h1>
+          <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .2 }} className="eyebrow mb-6">Rishi · Photographer</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .35, duration: 1 }} className="display-title text-[18vw] sm:text-8xl lg:text-[9rem]">Frames shaped<br/><em className="font-light text-white/65">by feeling.</em></motion.h1>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .8 }} className="mt-9 flex flex-wrap gap-3"><Link href="/gallery" className="button-primary">Explore work <ArrowUpRight size={15}/></Link><Link href="/contact" className="button-ghost">Start a project</Link></motion.div>
         </div>
       </div>

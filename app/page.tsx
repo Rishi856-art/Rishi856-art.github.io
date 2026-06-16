@@ -15,7 +15,7 @@ export default async function HomePage() {
       <Hero photos={heroPhotos} />
       <section id="intro" className="page-shell grid gap-10 py-24 sm:py-36 lg:grid-cols-[.75fr_1.25fr] lg:gap-24">
         <Reveal><p className="eyebrow">Behind the lens</p><div className="mt-8 h-px w-24 bg-gold/60"/></Reveal>
-        <Reveal delay={.1}><h2 className="font-display text-4xl font-light leading-tight sm:text-6xl">I photograph the space between what happened and <em className="text-gold">how it felt.</em></h2><p className="mt-8 max-w-2xl text-base leading-8 text-white/50">I’m Alex, an independent photographer drawn to human stories, untamed landscapes, and the poetry of everyday light. My work blends documentary honesty with a cinematic point of view.</p><Link href="/contact" className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-[.2em] text-gold">Work with me <ArrowUpRight size={15}/></Link></Reveal>
+        <Reveal delay={.1}><h2 className="font-display text-4xl font-light leading-tight sm:text-6xl">I photograph the space between what happened and <em className="text-gold">how it felt.</em></h2><p className="mt-8 max-w-2xl text-base leading-8 text-white/50">I’m Rishi, a photographer drawn to human stories, cinematic moods, travel moments, and the poetry of everyday light. My work blends honest observation with a premium visual style.</p><Link href="/contact" className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-[.2em] text-gold">Work with me <ArrowUpRight size={15}/></Link></Reveal>
       </section>
 
       <section className="border-y border-white/10 bg-white/[.025] py-24 sm:py-32">
@@ -29,7 +29,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-y border-white/10 bg-[#0c0c0b] py-24 sm:py-36"><div className="page-shell"><Reveal className="mx-auto max-w-4xl text-center"><p className="eyebrow">Kind words</p><blockquote className="mt-8 font-display text-4xl font-light leading-tight sm:text-6xl">“Alex didn’t just document the day. Somehow, every frame brings us back to exactly how it felt.”</blockquote><p className="mt-8 text-[10px] uppercase tracking-[.28em] text-white/40">Maya & Daniel · London</p></Reveal></div></section>
+      <section className="relative overflow-hidden border-y border-white/10 bg-[#0c0c0b] py-24 sm:py-36"><div className="page-shell"><Reveal className="mx-auto max-w-4xl text-center"><p className="eyebrow">Kind words</p><blockquote className="mt-8 font-display text-4xl font-light leading-tight sm:text-6xl">“Rishi has a way of turning simple moments into photographs that feel cinematic, personal, and alive.”</blockquote><p className="mt-8 text-[10px] uppercase tracking-[.28em] text-white/40">Client story · India</p></Reveal></div></section>
 
       <section className="page-shell py-24 text-center sm:py-36"><Reveal><p className="eyebrow">Have a story in mind?</p><h2 className="mt-5 font-display text-6xl sm:text-8xl">Let’s make it visible.</h2><Link href="/contact" className="button-primary mt-9">Start a conversation <ArrowUpRight size={15}/></Link></Reveal></section>
     </>

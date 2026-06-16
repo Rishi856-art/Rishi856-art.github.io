@@ -26,7 +26,7 @@ export function Navbar() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled || open ? "border-b border-white/10 bg-ink/90 backdrop-blur-xl" : "bg-transparent"}`}>
       <div className="page-shell flex h-20 items-center justify-between">
-        <Link href="/" className="font-display text-2xl tracking-[0.18em]">LUMEN<span className="text-gold">.</span></Link>
+        <Link href="/" className="font-display text-2xl tracking-[0.18em]">RISHI<span className="text-gold">.</span></Link>
         <nav className="hidden items-center gap-8 md:flex">
           {links.map(([label, href]) => <Link key={href} href={href} className={`text-[11px] uppercase tracking-[0.22em] transition hover:text-gold ${pathname === href ? "text-gold" : "text-white/70"}`}>{label}</Link>)}
         </nav>

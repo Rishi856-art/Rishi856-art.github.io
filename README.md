@@ -1,4 +1,4 @@
-# Lumen Photography Portfolio
+# Rishi Photography Portfolio
 
 A production-oriented photography portfolio with a browser-based CMS. The public site works in demo mode immediately; connect Supabase to activate authentication, albums, uploads, featured images, contact messages, and persistent gallery management.
 

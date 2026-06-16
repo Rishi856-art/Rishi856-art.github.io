@@ -9,9 +9,9 @@ const cormorant = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-cor
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  title: { default: "Lumen — Photographer & Visual Storyteller", template: "%s | Lumen" },
-  description: "Cinematic portrait, travel, street, and editorial photography.",
-  openGraph: { title: "Lumen Photography", description: "Stories held in light.", type: "website" },
+  title: { default: "Rishi — Photographer", template: "%s | Rishi" },
+  description: "Rishi's cinematic portrait, travel, street, and editorial photography portfolio.",
+  openGraph: { title: "Rishi Photography", description: "Frames shaped by feeling.", type: "website" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
