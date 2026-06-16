@@ -1,12 +1,13 @@
 import type { NextConfig } from "next";
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-const repoName = "lumen-photography-portfolio";
+const repoName = process.env.GITHUB_PAGES_REPO ?? "lumen-photography-portfolio";
+const githubPagesBasePath = repoName ? `/${repoName}` : "";
 
 const nextConfig: NextConfig = {
   output: isGithubPages ? "export" : undefined,
-  basePath: isGithubPages ? `/${repoName}` : undefined,
-  assetPrefix: isGithubPages ? `/${repoName}/` : undefined,
+  basePath: isGithubPages && githubPagesBasePath ? githubPagesBasePath : undefined,
+  assetPrefix: isGithubPages && githubPagesBasePath ? `${githubPagesBasePath}/` : undefined,
   trailingSlash: isGithubPages,
   images: {
     unoptimized: isGithubPages,
