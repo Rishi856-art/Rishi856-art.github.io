@@ -23,7 +23,7 @@ export function AlbumsContent({ initialAlbums, initialPhotos }: { initialAlbums:
         {albums.map((album, index) => {
           const albumPhotos = photos.filter((photo) => photo.album_id === album.id);
           const coverPhoto = albumPhotos.find((photo) => photo.featured) || albumPhotos[0];
-          const cover = coverPhoto?.image_url || album.cover_url;
+          const cover = album.cover_url || coverPhoto?.image_url;
 
           return (
             <Reveal key={album.id} delay={(index % 3) * 0.08}>
