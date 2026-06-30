@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { CmsStatus } from "@/components/cms-status";
 import { Reveal } from "@/components/reveal";
 import { useLivePortfolioData } from "@/lib/live-data";
 import type { Album, Photo } from "@/lib/types";
 
 export function AlbumsContent({ initialAlbums, initialPhotos }: { initialAlbums: Album[]; initialPhotos: Photo[] }) {
-  const { albums, photos } = useLivePortfolioData(initialAlbums, initialPhotos);
+  const { albums, photos, error } = useLivePortfolioData(initialAlbums, initialPhotos);
 
   return (
+    <>
+    <CmsStatus message={error} />
     <div className="page-shell min-h-screen pb-24 pt-36 sm:pt-44">
       <Reveal>
         <p className="eyebrow">Collections</p>
@@ -59,5 +62,6 @@ export function AlbumsContent({ initialAlbums, initialPhotos }: { initialAlbums:
         })}
       </div>
     </div>
+    </>
   );
 }

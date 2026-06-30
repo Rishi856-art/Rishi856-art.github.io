@@ -26,13 +26,33 @@ export function AdminDashboard() {
   const [category, setCategory] = useState("Uncategorized");
 
   const load = useCallback(async () => {
-    const [{ data: albumData }, { data: photoData }, { data: userData }] = await Promise.all([
-      supabase.from("albums").select("*").order("created_at", { ascending: false }),
-      supabase.from("photos").select("*").order("created_at", { ascending: false }),
-      supabase.auth.getUser(),
-    ]);
+    let albumData: Album[] | null = null;
+    let photoData: Photo[] | null = null;
+    let userData: { user: { id: string } | null } | null = null;
 
-    if (!userData.user) {
+    try {
+      const [albumsResponse, photosResponse, userResponse] = await Promise.all([
+        supabase.from("albums").select("*").order("created_at", { ascending: false }),
+        supabase.from("photos").select("*").order("created_at", { ascending: false }),
+        supabase.auth.getUser(),
+      ]);
+
+      if (albumsResponse.error || photosResponse.error || userResponse.error) {
+        setMessage(albumsResponse.error?.message || photosResponse.error?.message || userResponse.error?.message || "CMS backend error.");
+        setLoading(false);
+        return;
+      }
+
+      albumData = albumsResponse.data;
+      photoData = photosResponse.data;
+      userData = userResponse.data;
+    } catch {
+      setMessage("CMS backend is unreachable. Check that the Supabase project is active and the URL is correct.");
+      setLoading(false);
+      return;
+    }
+
+    if (!userData?.user) {
       window.location.href = "/admin/login";
       return;
     }

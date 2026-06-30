@@ -9,6 +9,7 @@ export function useLivePortfolioData(initialAlbums = demoAlbums, initialPhotos =
   const [albums, setAlbums] = useState<Album[]>(initialAlbums);
   const [photos, setPhotos] = useState<Photo[]>(initialPhotos);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (!isSupabaseConfigured()) return;
@@ -16,16 +17,22 @@ export function useLivePortfolioData(initialAlbums = demoAlbums, initialPhotos =
 
     async function load() {
       setLoading(true);
-      const supabase = createClient();
-      const [{ data: albumData }, { data: photoData }] = await Promise.all([
-        supabase.from("albums").select("*").order("created_at", { ascending: false }),
-        supabase.from("photos").select("*").order("created_at", { ascending: false }),
-      ]);
+      try {
+        const supabase = createClient();
+        const [{ data: albumData, error: albumError }, { data: photoData, error: photoError }] = await Promise.all([
+          supabase.from("albums").select("*").order("created_at", { ascending: false }),
+          supabase.from("photos").select("*").order("created_at", { ascending: false }),
+        ]);
 
-      if (!cancelled) {
-        if (albumData?.length) setAlbums(albumData);
-        if (photoData?.length) setPhotos(photoData);
-        setLoading(false);
+        if (!cancelled) {
+          if (albumError || photoError) setError("The photography CMS is temporarily unreachable.");
+          if (albumData?.length) setAlbums(albumData);
+          if (photoData?.length) setPhotos(photoData);
+        }
+      } catch {
+        if (!cancelled) setError("The photography CMS is temporarily unreachable.");
+      } finally {
+        if (!cancelled) setLoading(false);
       }
     }
 
@@ -35,5 +42,5 @@ export function useLivePortfolioData(initialAlbums = demoAlbums, initialPhotos =
     };
   }, []);
 
-  return { albums, photos, loading };
+  return { albums, photos, loading, error };
 }
